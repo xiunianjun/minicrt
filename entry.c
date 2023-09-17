@@ -59,16 +59,18 @@ void mini_crt_entry(void)
     if (!mini_crt_init_io())
     	crt_fatal_error("IO initialize failed");
 
+	// 构造所有全局对象
+	do_global_ctors();
+
     ret = main(argc,argv);
-    // 结束部分：调用atexit注册的回调函数；杀死进程
-    // 都由Linux的系统调用exit自己实现了
     exit(ret);
 }
 
 
 void exit(int exitCode)
 {
-    //mini_crt_call_exit_routine();
+	// 执行atexit，完成所有finit钩子
+	mini_crt_call_exit_routine();
 #ifdef WIN32
     ExitProcess(exitCode);
 #else
