@@ -11,7 +11,7 @@ static void crt_fatal_error(const char* msg)
     exit(1);
 }
 
-void mini_crt_enrty(void)
+void mini_crt_entry(void)
 {
     int ret;
 
@@ -53,10 +53,10 @@ void mini_crt_enrty(void)
 #endif
 
     // 构造堆
-    if (!mini_crt_heap_init())
+    if (!mini_crt_init_heap())
         crt_fatal_error("heap initialize failed");
     // 初始化io
-    if (!mini_crt_io_init())
+    if (!mini_crt_init_io())
     	crt_fatal_error("IO initialize failed");
 
     ret = main(argc,argv);

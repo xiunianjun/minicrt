@@ -38,7 +38,7 @@ int vfprintf(FILE *stream, const char *format, va_list arglist)
 		switch (*p)
 		{
 		case '%':
-			if (!translating)	tanslating = 1;
+			if (!translating)	translating = 1;
 			else {
 				if (fputc('%', stream) < 0)	return EOF;
 				++ ret;

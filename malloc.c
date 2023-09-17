@@ -46,7 +46,7 @@ static int brk(void* end_data_segment) {
 #include <Windows.h>
 #endif
 
-int mini_crt_heap_init()
+int mini_crt_init_heap()
 {
 	void* base = NULL;
 	heap_header *header = NULL;

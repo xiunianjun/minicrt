@@ -7,7 +7,7 @@ fopen仅区分"r" "w" "+"，不支持"a"。
 */
 #include "minicrt.h"
 
-int minicrt_io_init()
+int mini_crt_init_io()
 {
 	return 1;
 }
