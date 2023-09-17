@@ -4,7 +4,7 @@ typedef void (*ctor_func)(void);
 // 转化-1为函数指针，标识结束
 ctor_func ctors_begin[1] __attribute__((section(".ctors"))) = {
 	(ctor_func)-1
-}
+};
 
 void run_hooks()
 {
